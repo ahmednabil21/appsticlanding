@@ -1,0 +1,354 @@
+:root {
+  --bg: #f0f7fa;
+  --bg-deep: #e2f0f5;
+  --surface: #ffffff;
+  --primary: #0d6e8a;
+  --primary-dark: #095266;
+  --primary-light: #14a3c7;
+  --accent: #10b981;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --border: rgba(13, 110, 138, 0.12);
+  --shadow: 0 20px 50px rgba(13, 110, 138, 0.12);
+  --radius: 20px;
+  --font: "Noto Kufi Arabic", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font);
+  color: var(--text);
+  background: linear-gradient(160deg, var(--bg) 0%, #fff 45%, var(--bg-deep) 100%);
+  line-height: 1.7;
+}
+
+.bg-pattern {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(20, 163, 199, 0.12), transparent 35%),
+    radial-gradient(circle at 85% 10%, rgba(16, 185, 129, 0.1), transparent 30%),
+    radial-gradient(circle at 50% 90%, rgba(13, 110, 138, 0.08), transparent 40%);
+}
+
+.container {
+  width: min(1120px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.header {
+  position: relative;
+  z-index: 2;
+  padding: 1.25rem 0;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 4px);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.brand-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(13, 110, 138, 0.15);
+}
+
+.brand-label {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.brand-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+}
+
+.version-badge {
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(13, 110, 138, 0.08);
+  color: var(--primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 0 3.5rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.12);
+  color: #047857;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.hero-title {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.25;
+  font-weight: 800;
+  color: var(--primary-dark);
+}
+
+.hero-text {
+  margin: 0 0 1.75rem;
+  max-width: 36rem;
+  color: var(--text-muted);
+  font-size: 1.02rem;
+}
+
+.download-actions {
+  display: grid;
+  gap: 1rem;
+  max-width: 28rem;
+}
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.15rem;
+  border-radius: 16px;
+  text-decoration: none;
+  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  box-shadow: var(--shadow);
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+}
+
+.download-btn:active {
+  transform: translateY(0);
+}
+
+.download-btn--android {
+  background: linear-gradient(135deg, #34a853 0%, #1e8e3e 100%);
+}
+
+.download-btn--ios {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+}
+
+.download-btn.is-highlighted {
+  outline: 3px solid rgba(255, 255, 255, 0.85);
+  outline-offset: 3px;
+  transform: translateY(-2px) scale(1.01);
+}
+
+.download-btn__icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.download-btn__icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.download-btn__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.download-btn__text strong {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.download-btn__text small {
+  opacity: 0.88;
+  font-size: 0.82rem;
+}
+
+.device-hint {
+  margin: 1rem 0 0;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: rgba(13, 110, 138, 0.08);
+  color: var(--primary-dark);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image {
+  width: min(100%, 420px);
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.2);
+  border: 1px solid var(--border);
+}
+
+.instructions {
+  position: relative;
+  z-index: 1;
+  padding: 0 0 4rem;
+}
+
+.section-title {
+  margin: 0 0 1.25rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  text-align: center;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+}
+
+.card-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 0.85rem;
+  border-radius: 12px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.card-icon--android {
+  background: #34a853;
+}
+
+.card-icon--ios {
+  background: #111827;
+  position: relative;
+}
+
+.card-icon--ios::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 10px 0 0 #fff;
+}
+
+.card h4 {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+  color: var(--primary-dark);
+}
+
+.card ol {
+  margin: 0;
+  padding-right: 1.2rem;
+  color: var(--text-muted);
+}
+
+.card li + li {
+  margin-top: 0.45rem;
+}
+
+.footer {
+  position: relative;
+  z-index: 1;
+  padding: 1.5rem 0 2rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.footer p {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    order: -1;
+  }
+
+  .hero-image {
+    width: min(100%, 320px);
+  }
+}
+
+@media (max-width: 640px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 1rem;
+  }
+}
