@@ -10,6 +10,8 @@ ROOT = Path(__file__).resolve().parent
 MIME_TYPES = {
     ".apk": "application/vnd.android.package-archive",
     ".mobileconfig": "application/x-apple-aspen-config",
+    ".mp4": "video/mp4",
+    ".mov": "video/quicktime",
 }
 
 
